@@ -1,0 +1,45 @@
+﻿<Window x:Class="Project_CS464.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_CS464"
+        mc:Ignorable="d"
+        Title="Shoes Shop" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Column="0" VerticalAlignment="Stretch" Background="DeepSkyBlue">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+
+            <Menu.Resources>
+                <Style TargetType="MenuItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="Beige"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+            </Menu.Resources>
+            
+            <MenuItem Header="Tổng quan"/>
+            <MenuItem Header="Đơn hàng"/>
+            <MenuItem Header="Sản phẩm"/>
+            <MenuItem Header="Thống kê"/>
+            <MenuItem Header="Nhân viên"/>
+            <MenuItem Header="Đăng xuất"/>
+        </Menu>
+
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+
+</Window>
