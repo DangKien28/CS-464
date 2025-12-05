@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DA_001
+namespace DA_002
 {
     using System;
     using System.Collections.Generic;
@@ -16,10 +16,9 @@ namespace DA_001
     {
         public string madon { get; set; }
         public string masp { get; set; }
-        public string tensp { get; set; }
         public Nullable<int> soluong { get; set; }
-        public Nullable<decimal> gia { get; set; }
     
         public virtual DonHang DonHang { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }

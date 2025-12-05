@@ -6,8 +6,8 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-namespace DA_001
+using System.ComponentModel.DataAnnotations.Schema;
+namespace DA_002
 {
     using System;
     using System.Collections.Generic;
@@ -23,10 +23,14 @@ namespace DA_001
         public string madon { get; set; }
         public string makh { get; set; }
         public string tenkh { get; set; }
-        public Nullable<int> sdt { get; set; }
+        public string sdt { get; set; }
         public string diachi { get; set; }
+        public string manv { get; set; }
         public Nullable<System.DateTime> ngaydat { get; set; }
-    
+        public string trangthai { get; set; }
+        [NotMapped]
+        public decimal TongTien { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTDonHang> CTDonHangs { get; set; }
     }
