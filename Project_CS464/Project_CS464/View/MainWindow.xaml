@@ -25,9 +25,11 @@
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
                     <Setter Property="FontSize" Value="18"/>
                     <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="Foreground" Value="Beige"/>
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="Margin" Value="2"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                    <Setter Property="Margin" Value="0, 0, 0, 10"/>
+                    <Setter Property="BorderThickness" Value="5"/>
+                    
                 </Style>
             </Menu.Resources>
             

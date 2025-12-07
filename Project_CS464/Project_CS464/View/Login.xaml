@@ -4,8 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_CS464"
+        xmlns:vm="clr-namespace:Project_CS464.ViewModel"
         mc:Ignorable="d"
+        Name="loginWindow" 
         Title="Login" Height="400" Width="500">
+
+    <Window.DataContext>
+        <vm:UserViewModel/>
+    </Window.DataContext>
+
     <StackPanel VerticalAlignment="Center" Margin="50">
         <TextBlock Text="Đăng nhập" Margin="20" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
         <Grid>
@@ -20,7 +27,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Tên đăng nhập" Grid.Column="0"/>
-                <TextBox Grid.Column="1"/>
+                <TextBox Grid.Column="1" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
 
             <Grid Grid.Row="1" Margin="10">
@@ -29,9 +36,13 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Mật khẩu" Grid.Column="0"/>
-                <PasswordBox Grid.Column="1"/>
+                <PasswordBox x:Name="PasswordBoxInput" Grid.Column="1"/>
             </Grid>
         </Grid>
-        <Button Content="Đăng nhập" Margin="100, 15, 100, 0" Height="30"/>
+
+        <Button Content="Đăng nhập" 
+                Margin="100, 15, 100, 0" Height="30"
+                Command="{Binding LoginCommand}"
+                CommandParameter="{Binding ElementName=loginWindow}"/>
     </StackPanel>
 </Window>

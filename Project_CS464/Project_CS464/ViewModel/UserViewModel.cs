@@ -1,14 +1,84 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Project_CS464.Model; // Đảm bảo đã using Model
+using Project_CS464.View;  // Đảm bảo đã using View
+using System;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Project_CS464.ViewModel
 {
-    class UserViewModel
+    public class UserViewModel : INotifyPropertyChanged
     {
-        public static Model.UserDBEntities db = new Model.UserDBEntities();
 
+        private static UserDBEntities _db;
+        public static UserDBEntities db
+        {
+            get
+            {
+                if (_db == null) _db = new UserDBEntities();
+                return _db;
+            }
+        }
+
+        private string _username;
+        public string Username
+        {
+            get { return _username; }
+            set
+            {
+                _username = value;
+                OnPropertyChanged("Username");
+            }
+        }
+
+        public ICommand LoginCommand { get; set; }
+
+        public UserViewModel()
+        {
+            LoginCommand = new RelayCommand<Window>((p) => Login(p), (p) => true);
+            LoginCommand = new RelayCommand<Window>(
+                (p) => { Login(p); },
+                (p) => { return true; }  
+            );
+        }
+
+        void Login(Window p)
+        {
+            if (p == null) return;
+
+            var passwordBox = p.FindName("PasswordBoxInput") as PasswordBox;
+            string password = passwordBox != null ? passwordBox.Password : "";
+
+            var accCount = db.Users.Where(x => x.Username == Username && x.Password == password).Count();
+
+            if (accCount > 0)
+            {
+                var user = db.Users.Where(x => x.Username == Username && x.Password == password).First();
+
+                if (user.Role != null)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    p.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản của bạn không có quyền truy cập!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        // implementation của INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
