@@ -7,16 +7,17 @@
         xmlns:vm="clr-namespace:Project_CS464.ViewModel"
         mc:Ignorable="d"
         Name="mainWindow"
-        Title="Shoes Shop" Height="600" Width="1000">
-    
+        Title="Shoes Shop" Height="674.729" Width="1172.094">
+
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="166*"/>
+            <ColumnDefinition Width="317*"/>
+            <ColumnDefinition Width="680*"/>
         </Grid.ColumnDefinitions>
 
         <Menu Grid.Column="0" VerticalAlignment="Stretch" Background="DeepSkyBlue">
@@ -36,19 +37,20 @@
                     <Setter Property="Background" Value="DeepSkyBlue"/>
                     <Setter Property="Margin" Value="0, 0, 0, 10"/>
                     <Setter Property="BorderThickness" Value="5"/>
-                    
+
                 </Style>
             </Menu.Resources>
-            
+
             <MenuItem Header="Tổng quan"/>
             <MenuItem Header="Đơn hàng" Click="openDonHangPage"/>
             <MenuItem Header="Sản phẩm" Click="openSanPhamPage"/>
             <MenuItem Header="Thống kê" Click="openBaoCaoPage"/>
             <MenuItem Header="Nhân viên" Click="openQLNVPage"/>
             <MenuItem Header="Đăng xuất" Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+            <MenuItem Header="Đề xuất AI" Click="openAIPage"/>
         </Menu>
 
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
     </Grid>
 
 </Window>

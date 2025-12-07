@@ -9,6 +9,6 @@
       Title="Overview">
 
     <Grid>
-        <TextBlock Text="Đây là Overview"/>
+        <TextBlock Text="Chào mừng đến với Shoesix" Background="Azure"/>
     </Grid>
 </Page>

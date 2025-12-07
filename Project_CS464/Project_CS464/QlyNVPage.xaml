@@ -213,7 +213,7 @@
                         </DataGrid.CellStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Mã NV" Binding="{Binding MaNV}" Width="100"/>
-                            <DataGridTextColumn Header="Họ tên" Binding="{Binding HoTen}" Width="*" MinWidth="150"/>
+                            <DataGridTextColumn Header="Họ tên" Binding="{Binding TenNV}" Width="*" MinWidth="150"/>
                             <DataGridTextColumn Header="Địa chỉ" Binding="{Binding DiaChi}" Width="*" MinWidth="180"/>
                             <DataGridTextColumn Header="Giới tính" Binding="{Binding GioiTinh}" Width="90"/>
                             <DataGridTextColumn Header="Ngày sinh" Binding="{Binding NgaySinh, StringFormat=dd/MM/yyyy}" Width="110"/>

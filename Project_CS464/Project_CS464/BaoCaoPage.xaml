@@ -1,0 +1,88 @@
+﻿<Page x:Class="Project_CS464.BaoCaoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project_CS464"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="950"
+      Title="Báo cáo doanh thu"
+      Background="#F5F5F5">
+
+    <Page.Resources>
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background" Value="#4A90E2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="BÁO CÁO DOANH THU BÁN HÀNG" 
+                   FontSize="24" FontWeight="Bold" Foreground="#2C3E50" 
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15" BorderBrush="#E0E0E0" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Từ ngày:" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14"/>
+                <DatePicker x:Name="dpTuNgay" Width="120" VerticalContentAlignment="Center"/>
+
+                <TextBlock Text="Đến ngày:" VerticalAlignment="Center" Margin="20,0,10,0" FontSize="14"/>
+                <DatePicker x:Name="dpDenNgay" Width="120" VerticalContentAlignment="Center"/>
+
+                <Button Content="Xem báo cáo" Click="btnXemBaoCao_Click" Style="{StaticResource ModernButton}" Margin="20,0,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <DataGrid x:Name="dgBaoCao" Grid.Row="2" AutoGenerateColumns="False" 
+          IsReadOnly="True" CanUserAddRows="False"
+          Background="White" RowBackground="White" AlternatingRowBackground="#F9F9F9"
+          BorderBrush="#D0D0D0" BorderThickness="1"
+          HeadersVisibility="Column" FontSize="13">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#ECF0F1"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã ĐH" Binding="{Binding MaDH}" Width="80"/>
+                <DataGridTextColumn Header="Ngày bán" Binding="{Binding NgayDat, StringFormat=dd/MM/yyyy}" Width="100"/>
+
+                <DataGridTextColumn Header="Sản phẩm" Binding="{Binding TenSP}" Width="*"/>
+
+                <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="80"/>
+                <DataGridTextColumn Header="Đơn giá" Binding="{Binding DonGia, StringFormat={}{0:N0} đ}" Width="100"/>
+                <DataGridTextColumn Header="Thành tiền" Binding="{Binding ThanhTien, StringFormat={}{0:N0} đ}" Width="120" FontWeight="Bold"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="3" Background="#34495E" CornerRadius="0,0,8,8" Padding="15" Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Tổng doanh thu:" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
+                <TextBlock x:Name="txtTongDoanhThu" Text="0 đ" Foreground="#F1C40F" FontSize="16" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

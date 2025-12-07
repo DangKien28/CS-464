@@ -1,0 +1,25 @@
+﻿<Page x:Class="Project_CS464.AIPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Dự Báo Bán Hàng">
+
+    <Grid Background="White" Margin="10">
+        <StackPanel>
+            <TextBlock Text="AI Hỗ Trợ Nhập Hàng" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <GroupBox Header="Tác vụ AI" Margin="0,0,0,10">
+                <StackPanel Margin="5">
+                    <Button Name="btnTrain" Content="1. Huấn luyện lại Mô hình AI" Click="btnTrain_Click" Margin="0,0,0,5" Padding="5"/>
+                    <Button Name="btnRecommend" Content="2. Đề xuất nhập hàng tuần tới" Click="btnRecommend_Click" Padding="5" FontWeight="Bold" Background="#E0F7FA"/>
+                </StackPanel>
+            </GroupBox>
+
+            <TextBlock Text="Danh sách loại giày nên nhập:" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <ListBox Name="lstSuggestions" Height="250" BorderBrush="Gray" BorderThickness="1" Padding="5"/>
+        </StackPanel>
+    </Grid>
+</Page>

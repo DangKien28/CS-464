@@ -31,7 +31,6 @@ namespace Project_CS464
         public string trangthai { get; set; }
         [NotMapped]
         public decimal TongTien { get; set; }
-    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTDonHang> CTDonHangs { get; set; }
     }

@@ -14,6 +14,12 @@ namespace Project_CS464
     
     public partial class SanPham
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SanPham()
+        {
+            this.CTDonHangs = new HashSet<CTDonHang>();
+        }
+    
         public string MaSP { get; set; }
         public string Hang { get; set; }
         public string MauGiay { get; set; }
@@ -21,5 +27,8 @@ namespace Project_CS464
         public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> Gia { get; set; }
         public Nullable<System.DateTime> NgayNhap { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTDonHang> CTDonHangs { get; set; }
     }
 }

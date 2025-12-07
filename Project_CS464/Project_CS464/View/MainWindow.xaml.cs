@@ -37,12 +37,16 @@ namespace Project_CS464.View
         }
         public void openBaoCaoPage(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new QLyNv());
+            MainFrame.Navigate(new BaoCaoPage());
         }
 
         public void openQLNVPage(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new QLyNVPage());
+        }
+        public void openAIPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AIPage());
         }
     }
 }
