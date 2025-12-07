@@ -1,0 +1,96 @@
+﻿<Page x:Class="DA_001.test2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="test">
+    <DockPanel Background="#F2F6FC" LastChildFill="True" Width="800">
+
+        <Grid Margin="20" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="363*"/>
+                <ColumnDefinition Width="397*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+
+
+            <GroupBox Header="Chi tiết đơn hàng" Grid.Row="0" Margin="5"
+                      Padding="10" Background="White" Grid.ColumnSpan="2">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!--<Label Content="Mã đơn hàng:" Grid.Row="0"/>-->
+                    <Label Content="Mã sản phẩm:" Grid.Row="1"/>
+                    <Label Content="Tên sản phẩm:" Grid.Row="2"/>
+
+                    <Label Content="Số lượng:" Grid.Row="4"/>
+                    <Label Content="Giá:" Grid.Row="5"/>
+
+                    <!--<TextBox x:Name="txt6" Grid.Row="0" Grid.Column="1" Margin="5"/>-->
+                    <TextBox x:Name="txt7" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                    <TextBox x:Name="txt8" Grid.Row="2" Grid.Column="1" Margin="5"/>
+                    <TextBox x:Name="txt9" Grid.Row="4" Grid.Column="1" Margin="5"/>
+                    <TextBox x:Name="txt10" Grid.Row="5" Grid.Column="1" Margin="5"/>
+                </Grid>
+            </GroupBox>
+
+
+
+
+
+            <DataGrid Grid.Column="0" Grid.Row="1" Margin="10"
+          AutoGenerateColumns="True"
+          IsReadOnly="True"
+          Height="200"
+          x:Name="tblbang"
+       
+          HeadersVisibility="Column" SelectionChanged="Tblbang_SelectionChanged_1" >
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Thao tác" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                
+                                    <Button Content="sua" Margin="2" Width="40" Click="sua_click"/>
+                                    <Button Content="xoa" Margin="2" Width="40" Click="xoa_click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+
+
+            <Button Content="Thêm" Grid.Row="2"
+                    Width="120" Height="35"
+                    Margin="320,10"
+                    Background="#2ECC71"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0" Click="Button_Click" Grid.ColumnSpan="2"
+                    />
+        </Grid>
+
+    </DockPanel>
+</Page>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTDonHang">
+          <Key>
+            <PropertyRef Name="madon" />
+            <PropertyRef Name="masp" />
+          </Key>
+          <Property Name="madon" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="masp" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="tensp" Type="nvarchar" MaxLength="20" />
+          <Property Name="soluong" Type="int" />
+          <Property Name="gia" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="DonHang">
+          <Key>
+            <PropertyRef Name="madon" />
+          </Key>
+          <Property Name="madon" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="makh" Type="nvarchar" MaxLength="20" />
+          <Property Name="tenkh" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="int" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngaydat" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__CTDonHang__madon__4BAC3F29">
+          <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
+          <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonHang">
+              <PropertyRef Name="madon" />
+            </Principal>
+            <Dependent Role="CTDonHang">
+              <PropertyRef Name="madon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="CTDonHang" EntityType="Self.CTDonHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CTDonHang__madon__4BAC3F29" Association="Self.FK__CTDonHang__madon__4BAC3F29">
+            <End Role="DonHang" EntitySet="DonHang" />
+            <End Role="CTDonHang" EntitySet="CTDonHang" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CTDonHang">
+          <Key>
+            <PropertyRef Name="madon" />
+            <PropertyRef Name="masp" />
+          </Key>
+          <Property Name="madon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="masp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tensp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="soluong" Type="Int32" />
+          <Property Name="gia" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="DonHang" Relationship="Self.FK__CTDonHang__madon__4BAC3F29" FromRole="CTDonHang" ToRole="DonHang" />
+        </EntityType>
+        <EntityType Name="DonHang">
+          <Key>
+            <PropertyRef Name="madon" />
+          </Key>
+          <Property Name="madon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="makh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="tenkh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="Int32" />
+          <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngaydat" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CTDonHangs" Relationship="Self.FK__CTDonHang__madon__4BAC3F29" FromRole="DonHang" ToRole="CTDonHang" />
+        </EntityType>
+        <Association Name="FK__CTDonHang__madon__4BAC3F29">
+          <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
+          <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonHang">
+              <PropertyRef Name="madon" />
+            </Principal>
+            <Dependent Role="CTDonHang">
+              <PropertyRef Name="madon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CTDonHangs" EntityType="Self.CTDonHang" />
+          <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
+          <AssociationSet Name="FK__CTDonHang__madon__4BAC3F29" Association="Self.FK__CTDonHang__madon__4BAC3F29">
+            <End Role="DonHang" EntitySet="DonHangs" />
+            <End Role="CTDonHang" EntitySet="CTDonHangs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities1">
+          <EntitySetMapping Name="CTDonHangs">
+            <EntityTypeMapping TypeName="Database1Model.CTDonHang">
+              <MappingFragment StoreEntitySet="CTDonHang">
+                <ScalarProperty Name="madon" ColumnName="madon" />
+                <ScalarProperty Name="masp" ColumnName="masp" />
+                <ScalarProperty Name="tensp" ColumnName="tensp" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="gia" ColumnName="gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonHangs">
+            <EntityTypeMapping TypeName="Database1Model.DonHang">
+              <MappingFragment StoreEntitySet="DonHang">
+                <ScalarProperty Name="madon" ColumnName="madon" />
+                <ScalarProperty Name="makh" ColumnName="makh" />
+                <ScalarProperty Name="tenkh" ColumnName="tenkh" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
