@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CTDonHang">
+    <Key>
+      <PropertyRef Name="madon" />
+      <PropertyRef Name="masp" />
+    </Key>
+    <Property Name="madon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="masp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" />
+    <NavigationProperty Name="DonHang" Relationship="Self.FK__CTDonHang__madon__3A81B327" FromRole="CTDonHang" ToRole="DonHang" />
+    <NavigationProperty Name="SanPham" Relationship="Self.FK__CTDonHang__masp__3B75D760" FromRole="CTDonHang" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="madon" />
+    </Key>
+    <Property Name="madon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="makh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="tenkh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="manv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ngaydat" Type="DateTime" Precision="3" />
+    <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTDonHangs" Relationship="Self.FK__CTDonHang__madon__3A81B327" FromRole="DonHang" ToRole="CTDonHang" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Hang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MauGiay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CTDonHangs" Relationship="Self.FK__CTDonHang__masp__3B75D760" FromRole="SanPham" ToRole="CTDonHang" />
+  </EntityType>
+  <Association Name="FK__CTDonHang__madon__3A81B327">
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
+    <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="madon" />
+      </Principal>
+      <Dependent Role="CTDonHang">
+        <PropertyRef Name="madon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTDonHang__masp__3B75D760">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="CTDonHang" Type="Self.CTDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CTDonHang">
+        <PropertyRef Name="masp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLBHEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTDonHangs" EntityType="Self.CTDonHang" />
+    <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <AssociationSet Name="FK__CTDonHang__madon__3A81B327" Association="Self.FK__CTDonHang__madon__3A81B327">
+      <End Role="DonHang" EntitySet="DonHangs" />
+      <End Role="CTDonHang" EntitySet="CTDonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTDonHang__masp__3B75D760" Association="Self.FK__CTDonHang__masp__3B75D760">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="CTDonHang" EntitySet="CTDonHangs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -4,8 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_CS464"
+        xmlns:vm="clr-namespace:Project_CS464.ViewModel"
         mc:Ignorable="d"
-        Title="Shoes Shop" Height="450" Width="800">
+        Name="mainWindow"
+        Title="Shoes Shop" Height="600" Width="1000">
+    
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -34,11 +41,11 @@
             </Menu.Resources>
             
             <MenuItem Header="Tổng quan"/>
-            <MenuItem Header="Đơn hàng"/>
-            <MenuItem Header="Sản phẩm"/>
-            <MenuItem Header="Thống kê"/>
-            <MenuItem Header="Nhân viên"/>
-            <MenuItem Header="Đăng xuất"/>
+            <MenuItem Header="Đơn hàng" Click="openDonHangPage"/>
+            <MenuItem Header="Sản phẩm" Click="openSanPhamPage"/>
+            <MenuItem Header="Thống kê" Click="openBaoCaoPage"/>
+            <MenuItem Header="Nhân viên" Click="openQLNVPage"/>
+            <MenuItem Header="Đăng xuất" Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
         </Menu>
 
         <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>

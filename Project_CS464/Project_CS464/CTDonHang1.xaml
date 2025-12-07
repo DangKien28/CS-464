@@ -1,0 +1,245 @@
+﻿<!--<Page x:Class="DA_002.CTDonHang1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DA_002"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CTDonHang">
+
+    <DockPanel Background="#F2F6FC" LastChildFill="True" Width="800">
+
+        <Grid Margin="20" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="363*"/>
+                <ColumnDefinition Width="397*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+
+
+            <GroupBox Header="Chi tiết đơn hàng" Grid.Row="0" Margin="5"
+                      Padding="10" Background="White" Grid.ColumnSpan="2">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Mã đơn hàng:" Grid.Row="0"/>
+                    <Label Content="Mã sản phẩm:" Grid.Row="1"/>
+                    <Label Content="Tên sản phẩm:" Grid.Row="2"/>
+
+                    <Label Content="Số lượng:" Grid.Row="4"/>
+                    <Label Content="Giá:" Grid.Row="5"/>
+
+                    <TextBox x:Name="txt6" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                    <TextBox x:Name="txt7" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                    <TextBox x:Name="txt8" Grid.Row="2" Grid.Column="1" Margin="5"/>
+                    <TextBox x:Name="txt9" Grid.Row="4" Grid.Column="1" Margin="5"/>
+                    <TextBox x:Name="txt10" Grid.Row="5" Grid.Column="1" Margin="5"/>
+                </Grid>
+            </GroupBox>
+
+
+
+
+
+            <DataGrid Grid.ColumnSpan="02" Grid.Row="1" Margin="10"
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          Height="200"
+          x:Name="tblbang"
+       
+          HeadersVisibility="Column"  >
+
+                <DataGrid.Columns>
+                    
+                        <DataGridTextColumn Header="MÃ ĐƠN" Binding="{Binding madon}" Width="*" />
+                        <DataGridTextColumn Header="ma san pham" Binding="{Binding masp}"  Width="*" />
+                    <DataGridTextColumn Header="ten san pham" Binding="{Binding SanPham.tensp}" Width="*" />
+
+                    <DataGridTextColumn Header="so luong" Binding="{Binding soluong}"  Width="*" />
+                    <DataGridTextColumn Header="gia" Binding="{Binding SanPham.gia}" Width="*" />
+                        <DataGridTemplateColumn Header="Thao tác" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                                    
+                                    <Button Content="xoa" Margin="2" Width="40" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+
+
+            <Button Content="Thêm" Grid.Row="2"
+                    Width="120" Height="35"
+                    Margin="320,10"
+                    Background="#2ECC71"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0"  Grid.ColumnSpan="2" Click="them_click"
+                    />
+        </Grid>
+
+    </DockPanel>
+</Page>-->
+<Page x:Class="Project_CS464.CTDonHang1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project_CS464"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CTDonHang">
+
+    <DockPanel Background="#f0f2f5" LastChildFill="True" Width="800">
+
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- ===================== CHI TIẾT ĐƠN HÀNG ===================== -->
+            <GroupBox Header="CHI TIẾT ĐƠN HÀNG" Grid.Row="0" Margin="5"
+                      Padding="18"
+                      FontWeight="Bold"
+                      Foreground="#34495E">
+                <GroupBox.BorderBrush>
+                    <SolidColorBrush Color="#D0D4DC"/>
+                </GroupBox.BorderBrush>
+
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- LABEL -->
+
+                    <Label Content="Mã sản phẩm:" Grid.Row="1" Margin="0,5"/>
+                    <Label Content="Số lượng:" Grid.Row="3" Margin="0,5"/>
+      
+
+                  
+                    
+                    <TextBox x:Name="txt7" Grid.Row="1" Grid.Column="1" Margin="5"
+                             Padding="6"
+                             BorderBrush="#B5BEC9" BorderThickness="1"/>
+           
+                    <TextBox x:Name="txt9" Grid.Row="3" Grid.Column="1" Margin="5"
+                             Padding="6"
+                             BorderBrush="#B5BEC9" BorderThickness="1"/>
+                  
+                </Grid>
+            </GroupBox>
+
+            <DataGrid Grid.Row="1" Margin="10,20,10,10"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Height="230"
+                      x:Name="tblbang"
+                      HeadersVisibility="Column"
+                      AlternatingRowBackground="#F2F6FC"
+                      ColumnHeaderHeight="38"
+                      RowHeight="32"
+                      BorderBrush="#D5D8DE"
+                      BorderThickness="1" SelectionChanged="Tblbang_SelectionChanged">
+
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#E9EDF5"/>
+                        <Setter Property="Foreground" Value="#2C3E50"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="MÃ ĐƠN" Binding="{Binding madon}" Width="*"/>
+                    <DataGridTextColumn Header="MÃ SẢN PHẨM" Binding="{Binding masp}" Width="*"/>
+                    <DataGridTextColumn Header="TÊN SẢN PHẨM" Binding="{Binding SanPham.tensp}" Width="2*"/>
+                    <DataGridTextColumn Header="SỐ LƯỢNG" Binding="{Binding soluong}" Width="*"/>
+                    <DataGridTextColumn Header="GIÁ" Binding="{Binding SanPham.gia}" Width="*"/>
+
+                   
+                    <DataGridTemplateColumn Header="Thao tác" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Xóa" Width="60"
+                                        Margin="2"
+                                        Padding="3"
+                                        Background="#E74C3C"
+                                        Foreground="White"
+                                        BorderThickness="0"
+                                        Cursor="Hand"
+                                        HorizontalAlignment="Center" Click="xoa_click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Row="3" Margin="0 10 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Tạo đơn hàng"
+                        Grid.Column="0"
+                        Height="40"
+                        Margin="10"
+                        Background="#2ECC71"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        Click="them_click"/>
+                <Button Content="Sửa đơn hàng"
+                        Grid.Column="1"
+                        Height="40"
+                        Margin="10"
+                        Background="#F1C40F"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        Click="Sua_click"/>
+            </Grid>
+            
+        </Grid>
+
+    </DockPanel>
+</Page>

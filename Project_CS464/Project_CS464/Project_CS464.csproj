@@ -79,6 +79,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BaoCao.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CTDonHang1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DonHang1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhapHangMoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Page1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QlyNVPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +114,51 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaoCao.xaml.cs">
+      <DependentUpon>BaoCao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CTDonHang.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CTDonHang1.xaml.cs">
+      <DependentUpon>CTDonHang1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DB1Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB1Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB1Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB1Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB1Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang1.xaml.cs">
+      <DependentUpon>DonHang1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>UserModel.tt</DependentUpon>
@@ -109,6 +178,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NHANVIEN.cs">
+      <DependentUpon>DB1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhapHangMoi.xaml.cs">
+      <DependentUpon>NhapHangMoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QlyNVPage.xaml.cs">
+      <DependentUpon>QlyNVPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SanPham.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPham.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SanPham.cs">
+      <DependentUpon>SanPham.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SanPham.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPham.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SanPham1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanPham.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="View\Login.xaml.cs">
@@ -148,6 +248,20 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DB1Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB1Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB1Model.edmx.diagram">
+      <DependentUpon>DB1Model.edmx</DependentUpon>
+    </None>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="Model\UserModel.edmx.diagram">
       <DependentUpon>UserModel.edmx</DependentUpon>
     </None>
@@ -156,11 +270,45 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="SanPham.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SanPham.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SanPham.edmx.diagram">
+      <DependentUpon>SanPham.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DB1Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB1Model.edmx</DependentUpon>
+      <LastGenOutput>DB1Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB1Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB1Model.edmx</DependentUpon>
+      <LastGenOutput>DB1Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>DB1.mdf</DependentUpon>
+    </Content>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Model\UserModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>UserModel.Context.cs</LastGenOutput>
@@ -170,6 +318,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UserModel.edmx</DependentUpon>
       <LastGenOutput>UserModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="QLBH.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="QLBH_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>QLBH.mdf</DependentUpon>
+    </Content>
+    <Content Include="SanPham.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SanPham.edmx</DependentUpon>
+      <LastGenOutput>SanPham.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SanPham.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SanPham.edmx</DependentUpon>
+      <LastGenOutput>SanPham1.cs</LastGenOutput>
     </Content>
     <Content Include="UserDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

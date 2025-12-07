@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project_CS464;
 
 namespace Project_CS464.View
 {
@@ -24,6 +25,24 @@ namespace Project_CS464.View
         {
             InitializeComponent();
             MainFrame.Navigate(new Overview());
+        }
+        public void openSanPhamPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Page1());
+        }
+
+        public void openDonHangPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new DonHang1());
+        }
+        public void openBaoCaoPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new QLyNv());
+        }
+
+        public void openQLNVPage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new QLyNVPage());
         }
     }
 }

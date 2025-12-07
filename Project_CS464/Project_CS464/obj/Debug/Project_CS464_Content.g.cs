@@ -8,8 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db1.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db1model.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db1model.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("db1_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model1.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model1.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/usermodel.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/usermodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("qlbh.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("qlbh_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sanpham.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sanpham.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("userdb.mdf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("userdb_log.ldf")]
 

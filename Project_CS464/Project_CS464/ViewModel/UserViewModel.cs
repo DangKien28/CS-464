@@ -37,18 +37,19 @@ namespace Project_CS464.ViewModel
 
         public UserViewModel()
         {
-            LoginCommand = new RelayCommand<Window>((p) => Login(p), (p) => true);
-            LoginCommand = new RelayCommand<Window>(
-                (p) => { Login(p); },
-                (p) => { return true; }  
+            LoginCommand = new RelayCommand<object>((p)=>
+            {
+                Login(p);
+            }
             );
         }
 
-        void Login(Window p)
+        void Login(object p)
         {
+            Window currentWindow = p as Window;
             if (p == null) return;
 
-            var passwordBox = p.FindName("PasswordBoxInput") as PasswordBox;
+            var passwordBox = currentWindow.FindName("PasswordBoxInput") as PasswordBox;
             string password = passwordBox != null ? passwordBox.Password : "";
 
             var accCount = db.Users.Where(x => x.Username == Username && x.Password == password).Count();
@@ -61,7 +62,7 @@ namespace Project_CS464.ViewModel
                 {
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
-                    p.Close();
+                    currentWindow.Close();
                 }
                 else
                 {
